@@ -62,4 +62,16 @@ public class CSVParserTest {
         assertEquals("Eye color of 12th entry is BRO", expectedEyes, actualEyes);
         assertEquals("Size of list should be 13", expectedSize, actualSize);
     }
+
+    @Test
+    public void serializeToCSVTest(){
+        //Given
+        String expected = csv2;
+
+        //When
+        String actual = DriversLicense.serializeToCSV(CSVParser.deserializeFromCSV(csv2));
+
+        //Then
+        assertEquals("Result of serializing the deserialization of csv2 should result in csv2", expected, actual);
+    }
 }

@@ -2,9 +2,6 @@ package kim.christopher;
 
 import java.util.ArrayList;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class CSVParser {
 
     public static ArrayList<DriversLicense> deserializeFromCSV(String csvString){
@@ -12,7 +9,7 @@ public class CSVParser {
         String[] lines = csvString.split("\n");
         String[] entry;
         for(int i = 1; i < lines.length; i++){
-            entry = lines[i].split(",");
+            entry = lines[i].split("[^a-zA-Z0-9'\\s\\/]");
             result.add(new DriversLicense(entry[0], entry[1], entry[2], entry[3], entry[4], entry[5]
                     ,entry[6], entry[7], entry[8], entry[9], entry[10], entry[11], entry[12]));
         }

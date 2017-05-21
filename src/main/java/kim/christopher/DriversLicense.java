@@ -91,6 +91,20 @@ public class DriversLicense {
     }
 
     public static String serializeToCSV(ArrayList<DriversLicense> list){
-        
+        StringBuilder result = new StringBuilder(1000);
+        result.append(getCSVHeader());
+        DriversLicense currentLicense;
+        for(int i = 0; i < list.size(); i++){
+            currentLicense = list.get(i);
+            result.append(currentLicense.serializeThis());
+        }
+        return result.toString().trim();
     }
+
+    public String serializeThis(){
+        return getLastName() + "," + getFirstName() + "," + getStreetAddress() + "," + getState() + "," + getLicenseNumber()
+                + "," + getDateOfBirth() + "," + getIssueDate()  + "," + getExpirationDate() + "," + getSex() + "," + getEyeColor()
+                + "," + getHeight() + "," + getOrganDonor() + "," + getLicenseClass() + "\n";
+    }
+
 }
