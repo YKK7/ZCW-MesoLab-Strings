@@ -1,5 +1,7 @@
 package kim.christopher;
 
+import java.util.ArrayList;
+
 public class DriversLicense {
 
     private String lastName;
@@ -85,10 +87,10 @@ public class DriversLicense {
     }
 
     public static String getCSVHeader(){
-        return "";
+        return "LAST_NAME,FIRST_NAME,ADDR,STATE,LICENSE_NUMBER,D.O.B.,ISS_D,EXP_D,SEX,EYES,HGT,ORGANDONOR,CLASS\n";
     }
 
-    public String serializeToCSV(){
-        return "";
+    public static String serializeToCSV(ArrayList<DriversLicense> list){
+        
     }
 }
